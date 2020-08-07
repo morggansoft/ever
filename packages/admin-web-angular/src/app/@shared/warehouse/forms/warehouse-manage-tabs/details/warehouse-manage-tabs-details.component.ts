@@ -182,7 +182,7 @@ export class WarehouseManageTabsDetailsComponent
 			preferRestrictedCarriersForDelivery: [false],
 			carriersIds: [[]],
 			ordersShortProcess: [false],
-			inStoreMode: [],
+			inStoreMode: [false],
 			carrierCompetition: [false],
 
 			enabledOrderCancelation: [false],
@@ -232,7 +232,10 @@ export class WarehouseManageTabsDetailsComponent
 						hasRestrictedCarriers: basicInfo.hasRestrictedCarriers,
 						carriersIds: basicInfo.carriersIds,
 				  }
-				: {}),
+				: {
+						hasRestrictedCarriers: false,
+						carriersIds: basicInfo.carriersIds,
+				  }),
 			...(basicInfo.hasRestrictedCarriers &&
 			basicInfo.carriersIds &&
 			basicInfo.carriersIds.length
@@ -261,6 +264,7 @@ export class WarehouseManageTabsDetailsComponent
 				useOnlyRestrictedCarriersForDelivery: false,
 				preferRestrictedCarriersForDelivery: false,
 				ordersShortProcess: false,
+				inStoreMode: false,
 				carrierCompetition: false,
 				enabledOrderCancelation: basicInfo.orderCancelation
 					? basicInfo.orderCancelation.enabled
