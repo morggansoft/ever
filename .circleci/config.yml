@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+    node: circleci/node@3.0.0
 
 aliases:
     - &install-gradle
@@ -55,10 +58,13 @@ jobs:
     build-monorepo-root:
         <<: *defaults
         working_directory: /tmp/workspace/monorepo-root
-        docker:
-            - image: circleci/node:13.12
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
             - checkout
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run:
@@ -90,10 +96,13 @@ jobs:
     build-backend-api:
         <<: *defaults
         working_directory: /tmp/workspace/backend/api
-        docker:
-            - image: circleci/node:13.12
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
             - checkout
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run:
@@ -126,10 +135,13 @@ jobs:
     build-admin-website-angular:
         <<: *defaults
         working_directory: /tmp/workspace/admin/website-angular
-        docker:
-            - image: circleci/node:13.12
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
             - checkout
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run:
@@ -282,10 +294,13 @@ jobs:
     build-shop-website-angular:
         <<: *defaults
         working_directory: /tmp/workspace/shop/website-angular
-        docker:
-            - image: circleci/node:13.12
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
             - checkout
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run:
@@ -378,9 +393,12 @@ jobs:
     test-carrier-mobile-ionic:
         <<: *defaults
         working_directory: /tmp/workspace/carrier/mobile-ionic
-        docker:
-            - image: circleci/node:10.16.0-browsers
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run: *install-chrome
@@ -404,9 +422,12 @@ jobs:
     test-shop-mobile-ionic:
         <<: *defaults
         working_directory: /tmp/workspace/shop/mobile-ionic
-        docker:
-            - image: circleci/node:10.16.0-browsers
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run: *install-chrome
@@ -430,9 +451,12 @@ jobs:
     test-shop-website-angular:
         <<: *defaults
         working_directory: /tmp/workspace/shop/website-angular
-        docker:
-            - image: circleci/node:10.16.0-browsers
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run: *install-chrome
@@ -456,9 +480,12 @@ jobs:
     test-admin-website-angular:
         <<: *defaults
         working_directory: /tmp/workspace/admin/website-angular
-        docker:
-            - image: circleci/node:10.16.0-browsers
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run: *install-chrome
@@ -482,9 +509,12 @@ jobs:
     test-backend-api:
         <<: *defaults
         working_directory: /tmp/workspace/backend/api
-        docker:
-            - image: circleci/node:10.16.0-browsers
+        machine:
+            image: ubuntu-1604:202004-01
         steps:
+            - node/install:
+                  install-yarn: true
+                  node-version: latest
             - run: *install-deps
             - run: *install-yarn
             - run: *install-chrome
