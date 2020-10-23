@@ -13,6 +13,9 @@ import { MapModalComponent } from './map-modal/map-modal.component';
 import { MercadoPaymentComponent } from './mercado-payment/mercado-payment.component';
 import { MercadoAcceptCardComponent } from './mercado-accept-card/mercado-accept-card.component';
 import { MercadoListCardComponent } from './mercado-list-cards/mercado-list-cards.component';
+import { OrdersCardModule } from 'app/pages/+orders-history/order-card/order-card.module';
+import { OrderInfoModalComponent } from './order-info-modal/order-info-modal.component';
+
 
 const COMPONENTS = [
 	DirectionsLocationComponent,
@@ -22,6 +25,8 @@ const COMPONENTS = [
 	MercadoPaymentComponent,
 	MercadoAcceptCardComponent,
 	MercadoListCardComponent,
+	OrderInfoHeaderComponent,
+	OrderInfoModalComponent,
 ];
 
 @NgModule({
@@ -34,6 +39,7 @@ const COMPONENTS = [
 		IssuePageModule,
 		ElapsedTimeModule,
 		ReactiveFormsModule,
+		OrdersCardModule,
 	],
 	entryComponents: [...COMPONENTS],
 	declarations: [...COMPONENTS],
