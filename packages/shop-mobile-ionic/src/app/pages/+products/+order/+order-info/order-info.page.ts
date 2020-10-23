@@ -321,7 +321,6 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 			this.navCtrl.navigateRoot('/products');
 		}
 
-	// For delivery-status
 	private _trackOrder() {
 		const orderRouterOptions = {
 			populateWarehouse: true,
