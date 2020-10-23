@@ -321,6 +321,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 			this.navCtrl.navigateRoot('/products');
 		}
 
+	// For delivery-status
 	private _trackOrder() {
 		const orderRouterOptions = {
 			populateWarehouse: true,
@@ -338,7 +339,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 
 		this._pageSubscriptions.push(sub);
 	}
-
+		
 	private async showIssueOrderInfoModal(): Promise<void> {
 		const modal = await this.modalController.create({
 			component: IssuePage,
