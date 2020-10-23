@@ -19,6 +19,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subscribable } from 'rxjs';
 import { OrderRouter } from '@modules/client.common.angular2/routers/order-router.service';
 import { environment } from 'environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'e-cu-order-store-info',
@@ -61,7 +62,8 @@ export class OrderStoreInfo implements OnInit, OnDestroy {
 		public modalController: ModalController,
 		private store: Store,
 		private http: HttpClient,
-		private orderRouter: OrderRouter
+		private orderRouter: OrderRouter,
+		private router: Router
 	) {}
 
 	private headers: HttpHeaders = new HttpHeaders({
@@ -101,7 +103,14 @@ export class OrderStoreInfo implements OnInit, OnDestroy {
 	get inStoreMode() {
 		return this.store.inStore;
 	}
-
+	
+	async closePopup() {
+		localStorage.removeItem('startDate');
+		localStorage.removeItem('endTime');
+		this.store.orderId = null;
+		this.
+		router.navigate(['/products']);
+	}
 	ngOnDestroy() {
 		console.warn('OrderStoreInfo did leave');
 
