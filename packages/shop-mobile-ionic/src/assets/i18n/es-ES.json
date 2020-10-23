@@ -94,6 +94,7 @@
 				}
 			]
 		},
+        "VIEW_ORDER_PRODUCTS": "Ver productos del pedido",
 		"STATUSES": [
 			{
 				"TITLE": "¡Estamos preparando el pedido!",
@@ -276,6 +277,7 @@
 	"FAILED": "Error",
 	"CANCELED": "Cancelado",
 	"IN_DELIVERY": "En viaje",
+    "PENDING": "Pendiente",
 	"COMPLETED": "Completado",
 	"LOCATION_NOTES": "Notas de ubicación",
 	"ENTER_NOTES_HERE": "Introduce notas aquí"
