@@ -19,6 +19,7 @@ import { CancelPage } from './+cancel/cancel.page';
 import { ElapsedTimeComponent } from '../../../components/elapsed-time/elapsed-time.component';
 import OrderWarehouseStatus from '@modules/server.common/enums/OrderWarehouseStatus';
 import { environment } from 'environments/environment';
+import { OrderInfoModalComponent } from './common/order-info-modal/order-info-modal.component';
 
 export enum DeliveryStatus {
 	Warehouse,
@@ -208,7 +209,22 @@ export class OrderPage implements OnInit, OnDestroy {
 		}
 		return 30 + '-' + 60;
 	}
+async showProductsModal(): Promise<void> {
+		const modal = await this.modalController.create({
+			component: OrderInfoModalComponent,
+			cssClass: 'products-info-modal',
+			componentProps: {
+				order: this.order,
+			},
+		});
+		return modal.present();
+	}
 
+	backToProducts() {
+		this.modalController.dismiss();
+		this.modalChange.emit(false);
+	}
+	
 	public get byPopupStatuses() {
 		// this is workaround for access language assets from array.
 		const popupStatuses = `BUY_POPUP.${
