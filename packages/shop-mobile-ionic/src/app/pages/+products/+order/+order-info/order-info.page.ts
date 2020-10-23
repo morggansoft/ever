@@ -21,8 +21,8 @@ import { IssuePage } from '../issue/issue.page';
 import { takeUntil } from 'rxjs/operators';
 import { ElapsedTimeComponent } from 'app/components/elapsed-time/elapsed-time.component';
 import OrderWarehouseStatus from '@modules/server.common/enums/OrderWarehouseStatus';
-import { environment } from 'environments/environment';
 import { OrderInfoModalComponent } from '../common/order-info-modal/order-info-modal.component';
+import { environment } from 'environments/environment';
 
 @Component({
 	selector: 'e-cu-order-info',
@@ -37,7 +37,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 	public paymentsEnabled: boolean = true;
 
 	public delivered: boolean;
-
+	
 	mercadoPayment = false;
 
 	@ViewChild('elapsedTime')
@@ -45,8 +45,9 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 
 	public modalOpen: boolean;
 	public modalChange = new EventEmitter<boolean>();
-	
+
 	private clearOrder = true;
+	
 	private readonly ngDestroy$ = new Subject<void>();
 
 	private _pageSubscriptions: Subscription[] = [];
@@ -284,7 +285,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 	undo() {
 		this.showCancelOrderInfoModal();
 	}
-	
+
 	backToProducts() {
 		this.clearOrder = false;
 		this.router.navigateByUrl('/products', { skipLocationChange: true });
@@ -320,6 +321,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 			this.store.orderId = null;
 			this.navCtrl.navigateRoot('/products');
 		}
+	}
 
 	// For delivery-status
 	private _trackOrder() {
@@ -339,7 +341,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 
 		this._pageSubscriptions.push(sub);
 	}
-		
+
 	private async showIssueOrderInfoModal(): Promise<void> {
 		const modal = await this.modalController.create({
 			component: IssuePage,
