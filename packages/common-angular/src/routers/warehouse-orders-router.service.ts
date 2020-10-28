@@ -42,6 +42,10 @@ export class WarehouseOrdersRouter implements IWarehouseOrdersRouter {
 		const order = await this.router.run<IOrder>('cancel', orderId);
 		return this._orderFactory(order);
 	}
+	async userComplete(orderId: string): Promise<Order> {
+		const order = await this.router.run<IOrder>('userComplete', orderId);
+		return this._orderFactory(order);
+	}
 
 	async addMore(
 		warehouseId: string,
