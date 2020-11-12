@@ -103,14 +103,14 @@ export class OrderStoreInfo implements OnInit, OnDestroy {
 	get inStoreMode() {
 		return this.store.inStore;
 	}
-	
+
 	async closePopup() {
 		localStorage.removeItem('startDate');
 		localStorage.removeItem('endTime');
 		this.store.orderId = null;
-		this.
-		router.navigate(['/products']);
+		this.router.navigate(['/products']);
 	}
+
 	ngOnDestroy() {
 		console.warn('OrderStoreInfo did leave');
 

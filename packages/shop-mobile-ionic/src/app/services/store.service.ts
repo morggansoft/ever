@@ -216,7 +216,7 @@ export class Store {
 	set shoppingCartData(val: string) {
 		localStorage.setItem('shoppingCartData', val);
 	}
-	
+
 	clearInStore() {
 		localStorage.removeItem('inStore');
 	}

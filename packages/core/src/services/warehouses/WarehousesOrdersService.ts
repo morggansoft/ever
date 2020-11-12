@@ -249,7 +249,7 @@ export class WarehousesOrdersService
 		return order;
 	}
 
-		/**
+	/**
 	 * User complete order
 	 *
 	 * @param {string} orderId
@@ -264,6 +264,7 @@ export class WarehousesOrdersService
 
 		return order;
 	}
+
 	/**
 	 * Add product to existed order
 	 *

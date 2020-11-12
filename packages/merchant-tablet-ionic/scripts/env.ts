@@ -49,7 +49,7 @@ export type Env = Readonly<{
 	WEB_MEMORY: number;
 	PORT: number;
 
-	MERCADO_PAYMENT: string;
+	MERCADO_PAYMENT: boolean;
 }>;
 
 export const env: Env = cleanEnv(
@@ -105,7 +105,7 @@ export const env: Env = cleanEnv(
 		WEB_MEMORY: num({ default: 2048 }),
 		PORT: num({ default: 4202 }),
 
-		MERCADO_PAYMENT: str({ default: '' }),
+		MERCADO_PAYMENT: bool({ default: false }),
 	},
 	{ strict: true, dotEnvPath: __dirname + '/../.env' }
 );

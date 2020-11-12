@@ -72,7 +72,7 @@ export interface Environment {
 	MERCHANT_IDS: string[];
 
 	SHOPPING_CART: boolean;
-	
+
 	MERCADO_PUBLISHABLE_KEY: string;
-	MERCADO_PAYMENT: string;
+	MERCADO_PAYMENT: boolean;
 }
