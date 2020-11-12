@@ -22,6 +22,7 @@ import { takeUntil } from 'rxjs/operators';
 import { ElapsedTimeComponent } from 'app/components/elapsed-time/elapsed-time.component';
 import OrderWarehouseStatus from '@modules/server.common/enums/OrderWarehouseStatus';
 import { OrderInfoModalComponent } from '../common/order-info-modal/order-info-modal.component';
+import { environment } from 'environments/environment';
 
 @Component({
 	selector: 'e-cu-order-info',
@@ -36,6 +37,8 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 	public paymentsEnabled: boolean = true;
 
 	public delivered: boolean;
+
+	mercadoPayment = false;
 
 	@ViewChild('elapsedTime')
 	elapsedTime: ElapsedTimeComponent;
@@ -65,6 +68,7 @@ export class OrderInfoPage implements OnInit, OnDestroy {
 		if (!this.store.startOrderDate) {
 			this.store.startOrderDate = new Date().toString();
 		}
+		this.mercadoPayment = Boolean(environment.MERCADO_PAYMENT);
 	}
 
 	ngOnDestroy() {

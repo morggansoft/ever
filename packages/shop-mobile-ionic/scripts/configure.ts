@@ -106,7 +106,9 @@ export const environment: Environment = {
 			: JSON.stringify([])
   },
 
-  SHOPPING_CART: ${env.SHOPPING_CART}
+  SHOPPING_CART: ${env.SHOPPING_CART},
+  MERCADO_PUBLISHABLE_KEY: '${env.MERCADO_PUBLISHABLE_KEY}',
+  MERCADO_PAYMENT: '${env.MERCADO_PAYMENT}'
 };
 
 /*

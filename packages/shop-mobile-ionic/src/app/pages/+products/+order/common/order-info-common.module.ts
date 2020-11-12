@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { CancelPageModule } from '../+cancel/cancel.module';
@@ -10,6 +10,9 @@ import { DirectionsLocationComponent } from './carreir-location/carreir-location
 import { OrderInfoHeaderComponent } from './header/order-info-header.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MapModalComponent } from './map-modal/map-modal.component';
+import { MercadoPaymentComponent } from './mercado-payment/mercado-payment.component';
+import { MercadoAcceptCardComponent } from './mercado-accept-card/mercado-accept-card.component';
+import { MercadoListCardComponent } from './mercado-list-cards/mercado-list-cards.component';
 import { OrdersCardModule } from 'app/pages/+orders-history/order-card/order-card.module';
 import { OrderInfoModalComponent } from './order-info-modal/order-info-modal.component';
 
@@ -18,6 +21,9 @@ const COMPONENTS = [
 	OrderInfoHeaderComponent,
 	PaymentComponent,
 	MapModalComponent,
+	MercadoPaymentComponent,
+	MercadoAcceptCardComponent,
+	MercadoListCardComponent,
 	OrderInfoHeaderComponent,
 	OrderInfoModalComponent,
 ];
@@ -31,6 +37,7 @@ const COMPONENTS = [
 		CancelPageModule,
 		IssuePageModule,
 		ElapsedTimeModule,
+		ReactiveFormsModule,
 		OrdersCardModule,
 	],
 	entryComponents: [...COMPONENTS],

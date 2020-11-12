@@ -43,7 +43,9 @@ export class CancelPage {
 		console.log(`order Cancelled: ${order.id}`);
 
 		if (order.isPaid) {
-			await this.orderRouter.refundWithStripe(order.id);
+			order.mercadoChargeId
+				? await this.orderRouter.refundWithMercado(order.id)
+				: await this.orderRouter.refundWithStripe(order.id);
 		}
 	}
 

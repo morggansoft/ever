@@ -71,5 +71,8 @@ export interface Environment {
 	// For "single" merchant (multiple branches)
 	MERCHANT_IDS: string[];
 
+	MERCADO_PUBLISHABLE_KEY: string;
+	MERCADO_PAYMENT: string;
+
 	SHOPPING_CART: boolean;
 }

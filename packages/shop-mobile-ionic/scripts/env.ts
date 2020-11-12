@@ -77,7 +77,9 @@ export type Env = Readonly<{
 	WEB_CONCURRENCY: number;
 	WEB_MEMORY: number;
 	PORT: number;
-	SHOPPING_CART: boolean;
+	MERCADO_PUBLISHABLE_KEY: string;
+	MERCADO_PAYMENT: boolean;
+    SHOPPING_CART: boolean;
 }>;
 
 const merchantIDs: any = makeValidator((x) => x, 'merchantIDs');
@@ -176,6 +178,8 @@ export const env: any = cleanEnv(
 		WEB_CONCURRENCY: num({ default: 1 }),
 		WEB_MEMORY: num({ default: 2048 }),
 		PORT: num({ default: 4201 }),
+		MERCADO_PUBLISHABLE_KEY: str({ default: '' }),
+		MERCADO_PAYMENT: bool({ default: false }),
 		SHOPPING_CART: bool({ default: false }),
 	},
 	{ strict: true, dotEnvPath: __dirname + '/../.env' }
